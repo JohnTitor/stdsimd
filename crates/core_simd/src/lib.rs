@@ -11,11 +11,11 @@ mod permute;
 #[macro_use]
 mod transmute;
 
+mod comparisons;
 mod fmt;
 mod intrinsics;
 mod ops;
 mod round;
-mod comparisons;
 
 mod lanes_at_most_64;
 pub use lanes_at_most_64::LanesAtMost64;
