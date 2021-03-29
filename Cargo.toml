@@ -1,6 +1,7 @@
 [workspace]
 
 members = [
+    "crates/bug",
     "crates/core_simd",
     "crates/test_helpers",
 ]
