@@ -20,10 +20,17 @@ macro_rules! implement_mask_ops {
                 /// Test if each lane is not equal to the corresponding lane in `other`.
                 #[inline]
                 pub fn lanes_ne(self, other: Self) -> crate::$mask<LANES> {
+                    let mut m = crate::$mask::<LANES>::splat(false);
+                    for (i, (a, b)) in self.to_array().iter().zip(other.to_array().iter()).enumerate() {
+                        m.set(i, a != b);
+                    }
+                    m
+                    /*
                     unsafe {
                         crate::$inner_mask_ty::from_int_unchecked(crate::intrinsics::simd_ne(self, other))
                             .into()
                     }
+                    */
                 }
 
                 /// Test if each lane is less than the corresponding lane in `other`.
