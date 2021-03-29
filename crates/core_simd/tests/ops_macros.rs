@@ -284,7 +284,27 @@ macro_rules! impl_float_tests {
             #[test]
             fn is_nan() {
                 test_helpers::test_unary_mask_elementwise(
-                    &Vector::<1>::is_nan,
+                    &Vector::<2>::is_nan,
+                    &Scalar::is_nan,
+                    &|_| true,
+                );
+                test_helpers::test_unary_mask_elementwise(
+                    &Vector::<8>::is_nan,
+                    &Scalar::is_nan,
+                    &|_| true,
+                );
+                test_helpers::test_unary_mask_elementwise(
+                    &Vector::<16>::is_nan,
+                    &Scalar::is_nan,
+                    &|_| true,
+                );
+                test_helpers::test_unary_mask_elementwise(
+                    &Vector::<32>::is_nan,
+                    &Scalar::is_nan,
+                    &|_| true,
+                );
+                test_helpers::test_unary_mask_elementwise(
+                    &Vector::<64>::is_nan,
                     &Scalar::is_nan,
                     &|_| true,
                 );
