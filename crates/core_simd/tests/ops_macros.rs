@@ -282,9 +282,19 @@ macro_rules! impl_float_tests {
             impl_binary_op_test!(Vector<LANES>, Scalar, Rem::rem, RemAssign::rem_assign);
 
             #[test]
-            fn is_nan() {
+            fn is_nan2() {
+                test_helpers::test_unary_mask_elementwise(
+                    &Vector::<1>::is_nan,
+                    &Scalar::is_nan,
+                    &|_| true,
+                );
                 test_helpers::test_unary_mask_elementwise(
                     &Vector::<2>::is_nan,
+                    &Scalar::is_nan,
+                    &|_| true,
+                );
+                test_helpers::test_unary_mask_elementwise(
+                    &Vector::<4>::is_nan,
                     &Scalar::is_nan,
                     &|_| true,
                 );
@@ -362,7 +372,6 @@ macro_rules! impl_float_tests {
                     );
                 }
 
-                /*
                 fn is_nan<const LANES: usize>() {
                     test_helpers::test_unary_mask_elementwise(
                         &Vector::<LANES>::is_nan,
@@ -371,6 +380,7 @@ macro_rules! impl_float_tests {
                     );
                 }
 
+                /*
                 fn is_normal<const LANES: usize>() {
                     test_helpers::test_unary_mask_elementwise(
                         &Vector::<LANES>::is_normal,
