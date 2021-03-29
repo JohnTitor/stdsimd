@@ -380,7 +380,6 @@ macro_rules! impl_float_tests {
                     );
                 }
 
-                /*
                 fn is_normal<const LANES: usize>() {
                     test_helpers::test_unary_mask_elementwise(
                         &Vector::<LANES>::is_normal,
@@ -396,7 +395,6 @@ macro_rules! impl_float_tests {
                         &|_| true,
                     );
                 }
-                */
 
                 fn abs<const LANES: usize>() {
                     test_helpers::test_unary_elementwise(
